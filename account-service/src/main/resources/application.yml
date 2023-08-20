@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: account-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/account
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  #    database-platform: mysql
+  liquibase:
+    change-log: classpath:/master/changelog-master.xml
+
+
+server:
+  port: 8000
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+

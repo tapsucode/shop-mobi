@@ -1,0 +1,18 @@
+
+spring:
+  application:
+    name: notification-service
+mail:
+  host: smtp.gmail.com
+  post: 587
+  username: lahoavaco95@gmail.com
+  password: toiggoahftuynndm
+  protocol: smtp
+  properties:
+    mail:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
+server:
+  port: 8040
