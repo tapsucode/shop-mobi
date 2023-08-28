@@ -1,10 +1,10 @@
 package com.example.accountservice.domains;
 
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
@@ -12,14 +12,18 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Table(name = "role")
+@Entity
 public class Role {
+
     @Id
+    @GeneratedValue
     private Long id;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "name",nullable = false)
     private Name name;
 
-    private Long accountId;
-
+    @ManyToMany(mappedBy = "roles")
     private List<Account> accounts;
 
     public enum Name {

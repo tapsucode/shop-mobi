@@ -1,26 +1,33 @@
 package com.example.accountservice.domains;
 
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+
 
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table
+@Table(name = "confirmation_code")
+@Entity
 public class ConfirmationCode {
 
     @Id
+    @GeneratedValue
     private Long id;
 
+    @Column(name = "code",columnDefinition = "text",nullable = false)
     private String code;
 
+    @Column(name = "status",nullable = false)
+    @Enumerated(EnumType.STRING)
     private Status status;
 
-    private Long accountId;
+    @ManyToOne()
+    @JoinColumn(name = "account_id")
+    private Account account;
     public enum Status {
         EXPIRED,
         USED

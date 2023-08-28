@@ -117,13 +117,13 @@
                 <version>4.20.0</version>
                 <configuration>
                     <changeLogFile>${basedir}/src/main/resources/master/changelog-master.xml</changeLogFile>
-                    <url>jdbc:mysql://localhost:3306/account</url>
+                    <url>jdbc:mysql://localhost:3306/account-service</url>
                     <username>root</username>
                     <password></password>
                     <defaultSchemaName/>
                     <driver>com.mysql.cj.jdbc.Driver</driver>
                     <referenceUrl>
-                        hibernate:spring:com.example.accountservice.domains?dialect=org.hibernate.dialect.MySQLDialect
+                        hibernate:spring:com.example.accountservice.domains?dialect=org.hibernate.dialect.MySQL5InnoDBDialect
                     </referenceUrl>
                     <diffChangeLogFile>${basedir}/src/main/resources/master/changelogs/diff-entity-vs-db.xml
                     </diffChangeLogFile>
