@@ -66,19 +66,19 @@
 
     <!-- Create join table for Account-Role relationship -->
     <changeSet id="create-join-table-account-role" author="account">
-        <createTable tableName="user_role">
-            <column name="user_id" type="BIGINT">
+        <createTable tableName="account_role">
+            <column name="account_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
             <column name="role_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addPrimaryKey tableName="user_role" columnNames="user_id,role_id"/>
-        <addForeignKeyConstraint baseTableName="user_role" baseColumnNames="user_id"
+        <addPrimaryKey tableName="account_role" columnNames="account_id,role_id"/>
+        <addForeignKeyConstraint baseTableName="account_role" baseColumnNames="account_id"
                                  constraintName="fk_account_role_user" referencedTableName="account" referencedColumnNames="id"
                                  onDelete="CASCADE" onUpdate="CASCADE"/>
-        <addForeignKeyConstraint baseTableName="user_role" baseColumnNames="role_id"
+        <addForeignKeyConstraint baseTableName="account_role" baseColumnNames="role_id"
                                  constraintName="fk_account_role_role" referencedTableName="role" referencedColumnNames="id"
                                  onDelete="CASCADE" onUpdate="CASCADE"/>
     </changeSet>

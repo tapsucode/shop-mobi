@@ -2,6 +2,14 @@
 spring:
   application:
     name: notification-service
+  cloud:
+    function:
+      definition: accountConfirmListener
+    stream:
+      bindings:
+        accountConfirmListener-in-0:
+          destination: account-confirmation-notification
+          binder: kafka
 mail:
   host: smtp.gmail.com
   post: 587

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableEurekaServer
-@ComponentScan({"com.example.eurekaserver", "com.example.commonservice"})
+//@ComponentScan({"com.example.eurekaserver", "com.example.commonservice"})
 public class EurekaServerApplication {
 
 	public static void main(String[] args) {
